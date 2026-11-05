@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class="reg-shell">
+    <!-- Selección de tipo de usuario -->
+    <mat-card class="role-card">
+
+      <mat-card-header class="role-card-header">
+        <img
+          class="role-card-image"
+          src="/assets/images/LOGO_DGB.png"
+          alt="Escudo BUAP">
+        <div class="actions-header-colum">
+          <mat-card-title class="title-card" >Registro de usuario </mat-card-title>
+
+          <mat-card-subtitle class="subtitle-card, ">
+            Por favor rellena cada campo con la información que se solicita
+          </mat-card-subtitle>
+        </div>
+        <div class="actions-row">
+          <button mat-icon-button class="back-btn" (click)="goBack()">
+            <mat-icon class="back-icon">arrow_back</mat-icon>
+          </button>
+        </div>
+      </mat-card-header>
+
+
+    </mat-card>
+    <!-- Formularios de registro dinámicos - según el tipo seleccionado -->
+    <div class="forms-area">
+      <app-registro-admin *ngIf="isAdmin" [rol]="tipo_user" [datos_user]="user"></app-registro-admin>
+      <app-registro-trabajadores  rol="trabajador" [datos_user]="user"></app-registro-trabajadores>
+    </div>
+  </div>
+</div>
